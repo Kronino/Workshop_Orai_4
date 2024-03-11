@@ -1,0 +1,21 @@
+﻿<Window x:Class="FoodEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodEditor"
+        mc:Ignorable="d"
+        Title="SnackEditorWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label Content="Name" Background="LightSkyBlue" FontSize="30" Padding="12"/>
+            <TextBox FontSize="30" Padding="12"/>
+            <Label Content="Price" Background="LightSkyBlue" FontSize="30" Padding="12"/>
+            <TextBox FontSize="30" Padding="12"/>
+            <Label Content="Quantity" Background="LightSkyBlue" FontSize="30" Padding="12"/>
+            <TextBox FontSize="30" Padding="12"/>
+            <Button  FontSize="28" Content="Save" Click="Button_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
