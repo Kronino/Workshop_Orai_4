@@ -4,8 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Workshop_Orai_4"
+        xmlns:vms="clr-namespace:Workshop_Orai_4.ViewModel"
+        xmlns:con="clr-namespace:Workshop_Orai_4.Helper"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vms:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <con:ValueConverter x:Key="colorConvert"/>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -31,7 +39,7 @@
                                    FontSize="15"/>
                             <ProgressBar  Maximum="20" Minimum="0" 
                                           Value="{Binding Quantity}" Grid.Column="3"
-                                          Foreground="{Binding Quantity, Converter={StaticResource qtocolor}}"/>
+                                          Foreground="{Binding Quantity, Converter={StaticResource colorConvert}}"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -40,7 +48,7 @@
 
         <StackPanel Grid.Column="1" >
             <Label Content="Bevétel:" HorizontalContentAlignment="Center" Padding="20" FontSize="20"/>
-            <Label Content="{Binding TotalPrice}" ContentStringFormat=" {0} Ft" HorizontalContentAlignment="Center" Padding="20" FontSize="20"/>
+            <Label Content="{Binding TotalCost}" ContentStringFormat=" {0} Ft" HorizontalContentAlignment="Center" Padding="20" FontSize="20"/>
             <Button Content="BuySnack" Margin="10" Padding="20" Command="{Binding AddToCartCommand}"/>
             <Button Content="Add" Margin="10" Padding="5" Command="{Binding AddNewFoodCommand}"/>
             <Button Content="Remove" Margin="10" Padding="5" Command="{Binding RemoveFromFoodsCommand}"/>

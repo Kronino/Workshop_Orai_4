@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="FoodEditor" Height="450" Width="800">
     <Grid>
-        <StackPanel>
+        <StackPanel x:Name="stack">
             <Label Content="Name" FontSize="30" Background="LightSkyBlue" Padding="10"/>
-            <TextBox FontSize="30" Padding="10"/>
+            <TextBox FontSize="30" Padding="10" Text="{Binding Actual.Name}" />
             <Label Content="Price" FontSize="30" Background="LightSkyBlue" Padding="10"/>
-            <TextBox FontSize="30" Padding="10"/>
+            <TextBox FontSize="30" Padding="10" Text="{Binding Actual.Price}"/>
             <Label Content="Quantity" FontSize="30" Background="LightSkyBlue" Padding="10"/>
-            <TextBox FontSize="30" Padding="10"/>
+            <TextBox FontSize="30" Padding="10" Text="{Binding Actual.Quantity}"/>
             <Button FontSize="25" Content="Save" Padding="17" Click="Button_Click" />
         </StackPanel>
     </Grid>

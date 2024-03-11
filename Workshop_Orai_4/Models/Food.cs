@@ -32,5 +32,15 @@ namespace Workshop_Orai_4.Models
             get { return quantity; }
             set { SetProperty(ref quantity, value); }
         }
+
+        public Food GetCopy()
+        {
+            return new Food
+            {
+                Name = this.Name,
+                Price = this.Price,
+                Quantity = this.Quantity
+            };
+        }
     }
 }

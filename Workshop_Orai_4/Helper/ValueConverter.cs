@@ -16,12 +16,12 @@ namespace Workshop_Orai_4.Helper
 
             if ((int)value <=5)
             {
-                SolidColorBrush myBrush1 = new SolidColorBrush(Colors.DarkGreen);
+                SolidColorBrush myBrush1 = new SolidColorBrush(Colors.Red);
                 return myBrush1;
             }
             if ((int)value > 5 && (int)value <=10)
             {
-                SolidColorBrush myBrush2 = new SolidColorBrush(Colors.Green);
+                SolidColorBrush myBrush2 = new SolidColorBrush(Colors.Yellow);
                 return myBrush2;
             }
             if ((int)value > 10 && (int)value <= 15)
@@ -31,7 +31,7 @@ namespace Workshop_Orai_4.Helper
             }
             else
             {
-                SolidColorBrush myBrush4 = new SolidColorBrush(Colors.Red);
+                SolidColorBrush myBrush4 = new SolidColorBrush(Colors.DarkGreen);
                 return myBrush4;
             }
 
