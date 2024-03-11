@@ -15,7 +15,7 @@ namespace Workshop_Orai_4
     public partial class App : Application
     {
         public App()
-        {
+        { // siker
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                     .AddSingleton<IFoodLogic, FoodLogic>()
