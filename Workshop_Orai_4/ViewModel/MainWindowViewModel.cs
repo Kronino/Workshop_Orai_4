@@ -23,22 +23,43 @@ namespace Workshop_Orai_4.ViewModel
 
         private IFoodLogic logic;
 
-        private Food selectedFood;
-
         public ICommand AddToCartCommand { get; set; }
         public ICommand AddNewFoodCommand { get; set; }
         public ICommand RemoveFromFoodsCommand { get; set; }
         public ICommand EditFoodCommand { get; set; }
 
+        private Food selectedFood;
         public Food SelectedFood
         {
             get { return selectedFood; }
-            set 
+            set
             {
-                SetProperty(ref selectedFood, value)
+                if (selectedFood != value)
+                {
+                    if (selectedFood != null)
+                    {
+                        selectedFood.PropertyChanged -= SelectedFood_PropertyChanged;
+                    }
+
+                    SetProperty(ref selectedFood, value);
+
+                    if (selectedFood != null)
+                    {
+                        selectedFood.PropertyChanged += SelectedFood_PropertyChanged;
+                    }
+
+                    (AddToCartCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (RemoveFromFoodsCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (EditFoodCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
+        private void SelectedFood_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Food.Quantity))
+            {
                 (AddToCartCommand as RelayCommand).NotifyCanExecuteChanged();
-                (RemoveFromFoodsCommand as RelayCommand).NotifyCanExecuteChanged();
-                (EditFoodCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
 
